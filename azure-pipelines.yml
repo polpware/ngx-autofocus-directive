@@ -22,5 +22,7 @@ steps:
     PACKAGE_VERSION=${TAG_PATH:11}
     echo "version: $PACKAGE_VERSION"
     sed -i "s/\"version\": .*,/\"version\": \"${PACKAGE_VERSION}\",/g" package.json
+    cp ../../support/npm/.npmrc .
+    npm publish
   displayName: 'Publish to npm registry'
   workingDirectory: dist/ngx-autofocus-directive
