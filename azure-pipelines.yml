@@ -8,7 +8,7 @@ pool:
   vmImage: 'ubuntu-latest'
 
 variables:
-  - name: tagName
+  - name: branchPath
     value: $(Build.SourceBranch)
 
 steps:
@@ -17,5 +17,9 @@ steps:
 - script: yarn run dist
   displayName: 'Build dist version of library'
 
-- script: echo $(tagName)
-
+- script: |
+    declare -x PACKAGE_VERSION=${$(branchPath):11}
+    echo $PACKAGE_VERSION
+    cd ./dist/ngx-autofocus-directive
+    "sed -i \"s/\\\"version\\\": .*,/\\\"version\\\": \\\"${PACKAGE_VERSION}\\\",/g\" \"package.json\""
+  displayName: 'Publish to npm registry'
