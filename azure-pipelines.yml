@@ -20,6 +20,6 @@ steps:
 - script: |
     declare -x PACKAGE_VERSION=${$(branchPath):11}
     echo $PACKAGE_VERSION
-    "sed -i \"s/\\\"version\\\": .*,/\\\"version\\\": \\\"${PACKAGE_VERSION}\\\",/g\" \"package.json\""
+    sed -i "s/\"version\": .*,/\"version\": \"${PACKAGE_VERSION}\",/g" package.json
   displayName: 'Publish to npm registry'
   workingDirectory: dist/ngx-autofocus-directive
