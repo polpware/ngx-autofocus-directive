@@ -1,16 +1,21 @@
-# Starter pipeline
-# Start with a minimal pipeline that you can customize to build and deploy your code.
-# Add steps that build, run tests, deploy, and more:
-# https://aka.ms/yaml
 
 trigger:
-- master
+  tags:
+    include:
+    - v*
 
 pool:
   vmImage: 'ubuntu-latest'
 
-steps:
-- script: echo Hello, world!
-  displayName: 'Run a one-line script'
+variables:
+  - name: tagName
+    value: $(Build.BuildId)
 
+steps:
+- script: yarn install
+  displayName: Installing npm packages
+- script: yarn run dist
+  displayName: 'Build dist version of library'
+
+- script: echo $(tagName)
 
