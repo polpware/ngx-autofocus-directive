@@ -9,7 +9,7 @@ pool:
 
 variables:
   - name: tagName
-    value: $(Build.BuildId)
+    value: $(Build.SourceBranch)
 
 steps:
 - script: yarn install
