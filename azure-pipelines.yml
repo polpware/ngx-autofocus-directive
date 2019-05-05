@@ -24,6 +24,6 @@ steps:
     echo "start publishing as version: $PACKAGE_VERSION"
     sed -i "s/\"version\": .*,/\"version\": \"${PACKAGE_VERSION}\",/g" package.json
     npm config set '//registry.npmjs.org/:_authToken' "$(NPM_TOKEN)"
-    npm publish
+    npm publish --access public
   displayName: 'Publish to npm registry'
   workingDirectory: dist/ngx-autofocus-directive
