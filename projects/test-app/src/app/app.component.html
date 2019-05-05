@@ -1,0 +1,25 @@
+<h2>Should focus</h2>
+<input *ngIf="visible('attr')" autofocus type="text" />
+<div>
+  <button type="button" (click)="toggle('attr')">toggle</button>
+</div>
+
+<input *ngIf="visible('bindingtrue')" [attr.autofocus]="true" />
+<div>
+  <button type="button" (click)="toggle('bindingtrue')">toggle</button>
+</div>
+
+<input *ngIf="visible('proptrue')" [autofocus]="true" />
+<div>
+  <button type="button" (click)="toggle('proptrue')">toggle</button>
+</div>
+
+<h2>Should not focus</h2>
+<input *ngIf="visible('bindingnull')" [attr.autofocus]="null" />
+<div>
+  <button type="button" (click)="toggle('bindingnull')">toggle</button>
+</div>
+<input *ngIf="visible('propfalse')" [autofocus]="false" />
+<div>
+  <button type="button" (click)="toggle('propfalse')">toggle</button>
+</div>
