@@ -10,7 +10,7 @@ pool:
 variables:
   - name: branchPath
     value: $(Build.SourceBranch)
-  - group: npm
+  - group: 'npm'
 
 steps:
 - script: yarn install
@@ -24,6 +24,7 @@ steps:
     echo "start publishing as version: $PACKAGE_VERSION"
     sed -i "s/\"version\": .*,/\"version\": \"${PACKAGE_VERSION}\",/g" package.json
     cp ../../support/npm/.npmrc .
+    NPM_TOKEN="$(NPM_TOKEN)"
     npm publish
   displayName: 'Publish to npm registry'
   workingDirectory: dist/ngx-autofocus-directive
