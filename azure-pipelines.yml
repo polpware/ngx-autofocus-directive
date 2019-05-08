@@ -17,7 +17,7 @@ steps:
   displayName: Installing npm packages
 - script: yarn run dist
   displayName: 'Build dist version of library'
-- script: cp README.md LICENSE dist/.
+- script: cp README.md LICENSE dist/ngx-autofocus-directive/.
   displayName: Copy readme and license
 - script: |
     TAG_PATH="$(branchPath)"
