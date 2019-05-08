@@ -17,7 +17,8 @@ steps:
   displayName: Installing npm packages
 - script: yarn run dist
   displayName: 'Build dist version of library'
-
+- script: cp README.md LICENSE dist/.
+  displayName: Copy readme and license
 - script: |
     TAG_PATH="$(branchPath)"
     PACKAGE_VERSION=${TAG_PATH:11}
