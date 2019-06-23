@@ -15,7 +15,7 @@
     "url": "https://github.com/40three/ngx-autofocus-directive.git"
   },
   "peerDependencies": {
-    "@angular/common": ">7.0.0",
-    "@angular/core": ">7.0.0"
+    "@angular/common": ">7.0.0 <9.0.0",
+    "@angular/core": ">7.0.0 <9.0.0"
   }
 }
