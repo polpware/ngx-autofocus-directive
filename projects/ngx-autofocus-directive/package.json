@@ -7,6 +7,7 @@
     "url": "http://40three.io"
   },
   "homepage": "https://github.com/40three/ngx-autofocus-directive",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/40three/ngx-autofocus-directive/issues"
   },
